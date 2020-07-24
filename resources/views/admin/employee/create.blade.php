@@ -87,14 +87,14 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                 <input type="text" id="title" class="form-control" name="bin_name" value="{{ old('bin_name') }}">
-                                    <label class="form-label">Bin Name</label>
+                                    <label class="form-label">Customer Name</label>
                                 </div>
                             </div>
 
                             <div class="form-group form-float">
                                 <div class="form-line">
                                 <input type="tel" id="title" class="form-control" name="contact" value="{{ old('contact') }}">
-                                    <label class="form-label">Contact</label>
+                                    <label class="form-label">Contact (for contact number you must have to add 88 before number)</label>
                                 </div>
                             </div>
 

@@ -228,7 +228,7 @@
                     <td>{{ $employee->bin }}</td>
                 </tr>
                 <tr>
-                    <th>BIN NAME</th>
+                    <th>Customer Name</th> {{-- input field bin_name --}}
                     <td>{{ $employee->bin_name }}</td>
                 </tr>
                 <tr>
@@ -261,11 +261,13 @@
                 <h5>Send Submission Id</h5>
                 <div class="form-group form-float">
                     <div class="form-line">
-                    <input type="number" placeholder="type here..."  class="form-control" name="submission_id" value="{{ old('submission_id') }}">
+                    <input type="text" placeholder="type here..."  class="form-control" name="submission_id" value="{{ old('submission_id') }}">
                     </div>
                 </div>
                 <input type="hidden"  class="form-control" name="bin" value="{{ $employee->bin }}">
                 <input type="hidden"  class="form-control" name="id" value="{{ $employee->id }}">
+                <input type="hidden"  class="form-control" name="bin_name" value="{{ $employee->bin_name }}">
+                <input type="hidden"  class="form-control" name="contact" value="{{ $employee->contact }}">
                 <button type="submit" class="btn btn-primary  waves-effect">Submit</button>
             </form>
            </div>

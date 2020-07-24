@@ -15,18 +15,23 @@ class RecordController extends Controller
         ]);
 
         $employeeId = $request->id;
-        $employeeIdRow = Employee::find($employeeId);
-        $employeeIdRowContact = $employeeIdRow->contact;
-        //dd($employeeIdRowContact);
-        
+        $employeeIdFullRow = Employee::find($employeeId);
 
-        $subbmission_id = $request->submission_id;
-        $bin = $request->bin;
+        $employeeBin = $request->bin;
+        $employeeBinName = $request->bin_name;
+        $employeeIdContact = $request->contact;
+        $employeeSubmissionId = $request->submission_id;
+
+       
         $now = Carbon::now();
         $now = $now->format('M Y');
         //dd($now);
 
-        $existingOrNot = Record::where('bin', '=', $bin)->get();
+        $msgMonthNYear = Carbon::now();
+        $msgMonthNYear = $msgMonthNYear->format('F, Y');
+        //dd($msgMonthNYear);
+
+        $existingOrNot = Record::where('bin', '=', $employeeBin)->get();
         $flag = 0;
         if($existingOrNot->count() > 0){
             foreach ($existingOrNot as $row) {
@@ -39,13 +44,13 @@ class RecordController extends Controller
          
          if($flag == 0) {
             $url = "http://66.45.237.70/api.php";
-            $number= $employeeIdRowContact;
+            $number= $employeeIdContact;
             $text="
-Dear M/S.ALIF TRADE LINK (BIN: $bin),
+Dear $employeeBinName (BIN: $employeeBin),
 
-We would like to inform you that your Value Added Tax Return filing for tax period June, 2020 has been completed.
+We would like to inform you that your Value Added Tax Return filing for tax period $msgMonthNYear has been completed.
 
-If you need further support, please contact the Contact Center at 16555 and mention your Submission ID: $subbmission_id
+If you need further support, please contact the Contact Center at 16555 and mention your Submission ID: $employeeSubmissionId
 
 Thanks for your support.
 
@@ -70,12 +75,13 @@ Tareque Hassan";
             $sendstatus = $p[0];
 
 
-            $employeeIdRow->last_sms_date = $now;
-            $employeeIdRow->save();
+            $employeeIdFullRow->last_sms_date = $now;
+            $employeeIdFullRow->save();
             $record = new Record();
-            $record->submission_id = $subbmission_id;
-            $record->bin = $bin;
-            $record->contact = $employeeIdRowContact;
+            $record->submission_id = $employeeSubmissionId;
+            $record->bin = $employeeBin;
+            $record->contact = $employeeIdContact;
+            $record->bin_name = $employeeBinName;
             $record->monthNyear = $now;
             $record->save();
 

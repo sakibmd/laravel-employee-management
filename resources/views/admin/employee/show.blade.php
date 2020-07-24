@@ -66,6 +66,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title"><strong>Please Enter Your New Number</strong></h4>
+                    <small style="color:grey">(for contact number you must have to add 88 before number)</small>
                     </div>
                 <div class="modal-body">
 
@@ -74,7 +75,8 @@
                         @method('PUT')
                         <div class="form-group form-float">
                             <div class="form-line">									
-                                <input required type="tel" value="{{ old('contact') }}" class="form-control" placeholder="type here..." name="contact">									
+                                <input required type="tel" value="{{ old('contact') }}" class="form-control" placeholder="type contact number..." name="contact">	
+            								
                             </div>
                         </div>
 
@@ -127,7 +129,7 @@
                         @method('PUT')
                         <div class="form-group form-float">
                             <div class="form-line">									
-                                <input required type="tel" value="{{ old('bin') }}" class="form-control" placeholder="type here..." name="bin">									
+                                <input required type="tel" value="{{ old('bin') }}" class="form-control" placeholder="type your new bin number..." name="bin">									
                             </div>
                         </div>
 
@@ -183,7 +185,7 @@
                         @method('PUT')
                         <div class="form-group form-float">
                             <div class="form-line">									
-                                <input required type="tel" value="{{ old('email') }}" class="form-control" placeholder="type here..." name="email">									
+                                <input required type="tel" value="{{ old('email') }}" class="form-control" placeholder="type your new email..." name="email">									
                             </div>
                         </div>
 
@@ -228,7 +230,7 @@
                     <td>{{ $employee->bin }}</td>
                 </tr>
                 <tr>
-                    <th>BIN NAME</th>
+                    <th>Customer Name</th>
                     <td>{{ $employee->bin_name }}</td>
                 </tr>
                 <tr>
@@ -261,7 +263,7 @@
                 <h5>Send Submission Id</h5>
                 <div class="form-group form-float">
                     <div class="form-line">
-                    <input type="number" placeholder="type here..."  class="form-control" name="submission_id" value="{{ old('submission_id') }}">
+                    <input type="text" placeholder="type here..."  class="form-control" name="submission_id" value="{{ old('submission_id') }}">
                     </div>
                 </div>
                 <input type="hidden"  class="form-control" name="bin" value="{{ $employee->bin }}">

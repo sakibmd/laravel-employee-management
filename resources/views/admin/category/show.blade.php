@@ -45,7 +45,7 @@
                                     <th>Ref</th>
                                     <th>Remark</th>
                                     <th>Bin</th>
-                                    <th>Bin Name</th>
+                                    <th>Customer Name</th>  {{-- input field bin_name --}}
                                     <th>Contact</th>
                                     <th>Work Month</th>
                                     <th>Work Type</th>
@@ -64,7 +64,7 @@
                                     <th>Ref</th>
                                     <th>Remark</th>
                                     <th>Bin</th>
-                                    <th>Bin Name</th>
+                                    <th>Customer Name</th>   {{-- input field bin_name --}}
                                     <th>Contact</th>
                                     <th>Work Month</th>
                                     <th>Work Type</th>
@@ -107,7 +107,7 @@
                                     Edit
                                 </a>
 
-                    <button class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $employee->id }})">
+                    <button style="margin:5px;" class="btn btn-danger waves-effect" type="button" onclick="deletePost({{ $employee->id }})">
                         Delete
                     </button>
 

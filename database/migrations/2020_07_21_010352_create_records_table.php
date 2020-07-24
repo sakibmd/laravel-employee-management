@@ -15,9 +15,11 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('submission_id');
+            $table->string('submission_id');
             $table->integer('bin');
             $table->string('monthNyear');
+            $table->string('contact');
+            $table->string('bin_name');
             $table->timestamps();
         });
     }

@@ -78,7 +78,7 @@
                             <div class="form-group form-float">
                                 <div class="form-line">
                                 <input type="text"  class="form-control" name="bin_name" value="{{ old('bin_name', $employee->bin_name) }}">
-                                    <label class="form-label">Bin Name</label>
+                                    <label class="form-label">Customer Name</label>
                                 </div>
                             </div>
 

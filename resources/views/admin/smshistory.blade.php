@@ -40,6 +40,7 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Customer Name</th>
                                     <th>Bin Number</th>
                                     <th>Contact</th>
                                     <th>Submission Id</th>
@@ -49,6 +50,7 @@
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Customer Name</th>
                                     <th>Bin Number</th>
                                     <th>Contact</th>
                                     <th>Submission Id</th>
@@ -59,6 +61,7 @@
                                 @foreach ($record as $key=>$r)
                         <tr>
                             <td>{{ $key + 1 }}</td>
+                            <td>{{ $r->bin_name }}</td>
                             <td>{{ $r->bin }}</td>
                             <td>{{ $r->contact }}</td>
                             <td>{{ $r->submission_id }}</td>
