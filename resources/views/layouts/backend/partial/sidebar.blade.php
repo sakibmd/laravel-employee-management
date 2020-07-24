@@ -8,7 +8,7 @@
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
-                <li><a href="">
+                <li><a href="{{ Auth::user()->role->id == 1 ? route('admin.settings') : route('subadmin.settings') }}">
                     <i class="material-icons">settings</i>Settings</a></li>
                     
                     <li>
@@ -54,6 +54,20 @@
                         <span>Category</span>
                     </a>
                 </li>
+
+                <li class="{{ Request::is('admin/history') ? 'active' : '' }}">
+                    <a href="{{ route('admin.history') }}">
+                        <i class="material-icons">subscriptions</i>
+                        <span>All SMS History</span>
+                    </a>
+                </li>
+
+                <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
+                    <a href="{{ route('admin.settings') }}">
+                        <i class="material-icons">settings</i>
+                        <span>Settings</span>
+                    </a>
+                </li>
              
                
 
@@ -85,6 +99,13 @@
                 <a href="{{ route('subadmin.employee.index') }}">
                     <i class="material-icons">category</i>
                     <span>Employees</span>
+                </a>
+            </li>
+
+            <li class="{{ Request::is('subadmin/settings') ? 'active' : '' }}">
+                <a href="{{ route('subadmin.settings') }}">
+                    <i class="material-icons">settings</i>
+                    <span>Settings</span>
                 </a>
             </li>
 

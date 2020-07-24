@@ -109,6 +109,8 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+
+        $employee = Employee::where('category_id', '=', $id)->delete();
         return redirect(route('admin.category.index'))->with('success', 'Category Deleted Successfully');
     }
 

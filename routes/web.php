@@ -40,6 +40,11 @@ Route::group([
     Route::resource('employee', 'EmployeeController');
     Route::resource('category','CategoryController');
 
+    Route::get('history','SettingsController@showAllHistory')->name('history');
+    Route::get('settings','SettingsController@index')->name('settings');
+    Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
+    Route::put('password-update','SettingsController@updatePassword')->name('password.update');
+
     Route::get('category/employee/{id}','CategoryController@showIndividualCategoryWiseRecord')->name('categorywiseIndividual.show');
     
    
@@ -55,5 +60,9 @@ Route::group([
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
     Route::resource('employee', 'EmployeeController');
+
+    Route::get('settings','SettingsController@index')->name('settings');
+    Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
+    Route::put('password-update','SettingsController@updatePassword')->name('password.update');
 });
 

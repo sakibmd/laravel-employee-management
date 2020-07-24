@@ -52,7 +52,7 @@
                                     <th>Work Type</th>
                                     <th>Address</th>
                                     <th>Email</th>
-                                    <th>All Info</th>
+                                    {{-- <th>All Info</th> --}}
                                     <th>Added Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -70,7 +70,7 @@
                                     <th>Work Type</th>
                                     <th>Address</th>
                                     <th>Email</th>
-                                    <th>All Info</th>
+                                    {{-- <th>All Info</th> --}}
                                     <th>Added Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -90,9 +90,9 @@
                             <td>{{ $employee->address }}</td>
                             <td>{{ $employee->email }}</td>
                            
-                            <td><a href="{{ route('subadmin.employee.show',$employee->id) }}" class="btn btn-info waves-effect">
+                            {{-- <td><a href="{{ route('subadmin.employee.show',$employee->id) }}" class="btn btn-info waves-effect">
                                                             Details
-                            </a></td>
+                            </a></td> --}}
                            
                             <td>{{ $employee->created_at->toFormattedDateString()  }}</td>
                             <td class="text-center">

@@ -13,7 +13,7 @@ class UpdateController extends Controller
         
         //dd($id);
 
-        if( (Auth::id() == 1) || (Auth::id() == 2)){
+        if( (Auth::user()->role_id == 1) || (Auth::user()->role_id == 2)){
             $e = Employee::find($id);
             $this->validate($request,[
                 'contact' => ['required', 'numeric', 'unique:employees'],
@@ -22,9 +22,10 @@ class UpdateController extends Controller
             $e->save();
         }
        
-        if(Auth::id() == 1){
+        if(Auth::user()->role_id == 1){
             return redirect(route('admin.employee.show',$e->id))->with('success', 'Contact Updated Successfully');
-        }else{
+        }
+        if(Auth::user()->role_id == 2){
             return redirect(route('subadmin.employee.show',$e->id))->with('success', 'Contact Updated Successfully');
         }
 
@@ -35,7 +36,7 @@ class UpdateController extends Controller
         
         //dd($id);
 
-        if( (Auth::id() == 1) || (Auth::id() == 2)){
+        if( (Auth::user()->role_id == 1) || (Auth::user()->role_id == 2)){
             $e = Employee::find($id);
             $this->validate($request,[
                 'bin' => ['required', 'numeric', 'unique:employees'],
@@ -45,22 +46,22 @@ class UpdateController extends Controller
         }
 
 
-        if(Auth::id() == 1){
+        if(Auth::user()->role_id == 1){
             return redirect(route('admin.employee.show',$e->id))->with('success', 'Bin Updated Successfully');
-        }else{
+        }
+        if(Auth::user()->role_id == 2){
             return redirect(route('subadmin.employee.show',$e->id))->with('success', 'Bin Updated Successfully');
         }
 
-
     }
 
-
+    
     public function changeEmail(Request $request, $id)
     {
         
         //dd($id);
 
-        if( (Auth::id() == 1) || (Auth::id() == 2)){
+        if( (Auth::user()->role_id == 1) || (Auth::user()->role_id == 2)){
             $e = Employee::find($id);
             $this->validate($request,[
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:employees'],
@@ -69,9 +70,10 @@ class UpdateController extends Controller
             $e->save();
         }
 
-        if(Auth::id() == 1){
+        if(Auth::user()->role_id == 1){
             return redirect(route('admin.employee.show',$e->id))->with('success', 'Email Updated Successfully');
-        }else{
+        }
+        if(Auth::user()->role_id == 2){
             return redirect(route('subadmin.employee.show',$e->id))->with('success', 'Email Updated Successfully');
         }
         

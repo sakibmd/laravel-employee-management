@@ -38,16 +38,6 @@ class RecordController extends Controller
          //dd($flag);
          
          if($flag == 0) {
-
-            $employeeIdRow->last_sms_date = $now;
-            $employeeIdRow->save();
-            $record = new Record();
-            $record->submission_id = $subbmission_id;
-            $record->bin = $bin;
-            $record->monthNyear = $now;
-            $record->save();
-
-
             $url = "http://66.45.237.70/api.php";
             $number= $employeeIdRowContact;
             $text="
@@ -79,6 +69,15 @@ Tareque Hassan";
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
 
+
+            $employeeIdRow->last_sms_date = $now;
+            $employeeIdRow->save();
+            $record = new Record();
+            $record->submission_id = $subbmission_id;
+            $record->bin = $bin;
+            $record->contact = $employeeIdRowContact;
+            $record->monthNyear = $now;
+            $record->save();
 
             return redirect()->back()->with('success', 'Submission Id Send Successfully');
 

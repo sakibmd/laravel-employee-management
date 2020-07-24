@@ -14,6 +14,9 @@
         <li class="nav-item active">
             <a class="nav-link" href="">About </a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{  route('login') }}">Login </a>
+          </li>
       </ul>
     </div>
   </nav>
