@@ -107,16 +107,11 @@ class EmployeeController extends Controller
             $employee->login_no = $request->login_no;
             $employee->ref = $request->ref;
             $employee->remark = $request->remark;
-            $employee->category_id = $request->categories;
-            $employee->bin = $request->bin;
             $employee->bin_name = $request->bin_name;
             $employee->work_month = $request->work_month;
             $employee->work_type = $request->work_type;
-            $employee->contact = $request->contact;
             $employee->address = $request->address;
-            $employee->email = $request->email;
             $employee->save();
-            $employee->categories()->sync($request->categories);
             //$e->update($request->all());
             return redirect(route('admin.employee.index'))->with('success', 'Employee Edit Successfully');
     }

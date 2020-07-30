@@ -15,6 +15,13 @@
         }
         thead{
             position: sticky; top: 0;
+        }
+        .no-result{
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            font-size: 28px;
+            background-color: rgb(197, 87, 87);
+            padding: 20px;
         }    
 </style>
 
@@ -113,8 +120,8 @@
                     
                         @else 
 
-                        <div class="">
-                            No Result. Please Enter Correct Bin or Contact
+                        <div class="text-center no-result">
+                            No Result
                         </div>
 
                     @endif

@@ -266,8 +266,6 @@
                 </div>
                 <input type="hidden"  class="form-control" name="bin" value="{{ $employee->bin }}">
                 <input type="hidden"  class="form-control" name="id" value="{{ $employee->id }}">
-                <input type="hidden"  class="form-control" name="bin_name" value="{{ $employee->bin_name }}">
-                <input type="hidden"  class="form-control" name="contact" value="{{ $employee->contact }}">
                 <button type="submit" class="btn btn-primary  waves-effect">Submit</button>
             </form>
            </div>

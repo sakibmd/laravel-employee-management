@@ -63,7 +63,7 @@ class CategoryController extends Controller
         $employees = Employee::where('category_id', '=', $id)->get();
         $category = Category::find($id);
         $now = Carbon::now();
-        $now = $now->format('M Y');
+        $now = $now->format('F Y');
         return view('admin.category.show', compact('employees', 'category','now'));
     }
 

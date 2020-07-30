@@ -11,12 +11,12 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="block-header">
+    {{-- <div class="block-header">
         <a class="btn btn-primary waves-effect" href="{{ route('subadmin.employee.create') }}">
             <i class="material-icons">add</i>
             <span>Add New Employee</span>
         </a>
-    </div>
+    </div> --}}
 
     @if (session()->has('success'))
           <div class="alert alert-success m-3" role="alert">
@@ -54,7 +54,7 @@
                                     <th>Email</th>
                                     {{-- <th>All Info</th> --}}
                                     <th>Added Date</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tfoot>
@@ -72,7 +72,7 @@
                                     <th>Email</th>
                                     {{-- <th>All Info</th> --}}
                                     <th>Added Date</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -95,7 +95,7 @@
                             </a></td> --}}
                            
                             <td>{{ $employee->created_at->toFormattedDateString()  }}</td>
-                            <td class="text-center">
+                            {{-- <td class="text-center">
                                 <a href="{{ route('subadmin.employee.edit',$employee->id) }}" class="btn btn-info waves-effect">
                                     Edit
                                 </a>
@@ -109,7 +109,7 @@
                         @method('DELETE')
                         
                     </form>
-                    </td>
+                    </td> --}}
 </tr>
 @endforeach
                             </tbody>

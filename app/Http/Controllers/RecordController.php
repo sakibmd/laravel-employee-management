@@ -14,22 +14,21 @@ class RecordController extends Controller
             'submission_id' => ['required'],
         ]);
 
+        //dd($request->all());
+        $employeeSubmissionId = $request->submission_id;
+        $employeeBin = $request->bin;
         $employeeId = $request->id;
         $employeeIdFullRow = Employee::find($employeeId);
 
-        $employeeBin = $request->bin;
-        $employeeBinName = $request->bin_name;
-        $employeeIdContact = $request->contact;
-        $employeeSubmissionId = $request->submission_id;
+        $employeeBinName = $employeeIdFullRow->bin_name;
+        $employeeIdContact = $employeeIdFullRow->contact;
+        
 
        
         $now = Carbon::now();
-        $now = $now->format('M Y');
+        $now = $now->format('F Y');
         //dd($now);
 
-        $msgMonthNYear = Carbon::now();
-        $msgMonthNYear = $msgMonthNYear->format('F, Y');
-        //dd($msgMonthNYear);
 
         $existingOrNot = Record::where('bin', '=', $employeeBin)->get();
         $flag = 0;
@@ -48,7 +47,7 @@ class RecordController extends Controller
             $text="
 Dear $employeeBinName (BIN: $employeeBin),
 
-We would like to inform you that your Value Added Tax Return filing for tax period $msgMonthNYear has been completed.
+We would like to inform you that your Value Added Tax Return filing for tax period $now has been completed.
 
 If you need further support, please contact the Contact Center at 16555 and mention your Submission ID: $employeeSubmissionId
 
@@ -58,13 +57,11 @@ Best Regards,
 
 Tareque Hassan";
             $data= array(
-                'username'=>"01713301190",
-                'password'=>"69C7DTG4",
+                'username'=>"", //enter your sms provider accounts username
+                'password'=>"", //enter your sms provider accounts passowrd
                 'number'=> $number,
                 'message'=>"$text"
             );
-
-            print_r($data);
 
             $ch = curl_init(); // Initialize cURL
             curl_setopt($ch, CURLOPT_URL,$url);
