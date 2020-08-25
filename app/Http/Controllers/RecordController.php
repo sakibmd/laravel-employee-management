@@ -16,14 +16,15 @@ class RecordController extends Controller
 
         //dd($request->all());
         $employeeSubmissionId = $request->submission_id;
-        $employeeBin = $request->bin;
         $employeeId = $request->id;
         $employeeIdFullRow = Employee::find($employeeId);
 
         $employeeBinName = $employeeIdFullRow->bin_name;
         $employeeIdContact = $employeeIdFullRow->contact;
+        $employeeBin = $employeeIdFullRow->bin;
+       
         
-
+        //dd($employeeIdContact);
        
         $now = Carbon::now();
         $now = $now->format('F Y');
@@ -60,7 +61,7 @@ Tareque Hassan";
                 'username'=>"", //enter your sms provider accounts username
                 'password'=>"", //enter your sms provider accounts passowrd
                 'number'=> $number,
-                'message'=>"$text"
+                'message'=>$text
             );
 
             $ch = curl_init(); // Initialize cURL

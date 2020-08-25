@@ -218,6 +218,10 @@
                     <td>{{ $employee->login_no }}</td>
                 </tr>
                 <tr>
+                    <th> Category Name</th>
+                    <td>{{ $employee->category->name }}</td>
+                </tr>
+                <tr>
                     <th>Ref</th>
                     <td>{{ $employee->ref }}</td>
                 </tr>
@@ -266,7 +270,6 @@
                     <input type="text" placeholder="type here..."  class="form-control" name="submission_id" value="{{ old('submission_id') }}">
                     </div>
                 </div>
-                <input type="hidden"  class="form-control" name="bin" value="{{ $employee->bin }}">
                 <input type="hidden"  class="form-control" name="id" value="{{ $employee->id }}">
                 <button type="submit" class="btn btn-primary  waves-effect">Submit</button>
             </form>

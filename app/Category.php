@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     public function employees(){
-        return $this->belongsToMany('App\Employee')->withTimestamps();
+        return $this->hasMany('App\Employee');
     }
 }

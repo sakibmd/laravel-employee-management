@@ -41,6 +41,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Login No</th>
+                                    <th>Category</th>
                                     <th>Sms for this month?</th>
                                     <th>Ref</th>
                                     <th>Remark</th>
@@ -60,6 +61,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Login No</th>
+                                    <th>Category</th>
                                     <th>Sms for this month?</th>
                                     <th>Ref</th>
                                     <th>Remark</th>
@@ -80,6 +82,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $employee->login_no }}</td>
+                            <td>{{ $employee->category->name }}</td>
                             <td>
                                 @if ($employee->last_sms_date == $now)
                                      <span style="font-size: 15px;" class="label label-success">Done</span>

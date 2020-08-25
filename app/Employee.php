@@ -10,7 +10,7 @@ class Employee extends Model
         'login_no', 'ref', 'remark', 'bin', 'bin_name', 'contact', 'work_month', 'work_type', 'address', 'email',
     ];
 
-    public function categories(){
-        return $this->belongsToMany('App\Category')->withTimestamps();
+    public function category(){
+        return $this->belongsTo('App\Category');
     }
 }

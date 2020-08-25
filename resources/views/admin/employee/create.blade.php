@@ -55,7 +55,7 @@
 
                             <div class="form-group form-float {{ $errors->has('categories') ? 'focused error' : '' }}">
                                 <label class="form-label" for="category">Select Categories</label>
-                                <select name="categories" id="category" class="form-control" data-live-search="true" >
+                                <select name="category_id" id="category" class="form-control" data-live-search="true" >
                                     <option class="text-center"></option>
                                     @foreach ($categories as $category)
                                         <option class="text-center" value="{{ $category->id }}" >{{ $category->name }}</option>

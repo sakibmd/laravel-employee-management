@@ -15,8 +15,8 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('category_id');
             $table->string('login_no');
-            $table->string('category_id');
             $table->string('last_sms_date')->nullable();
             $table->string('ref');
             $table->string('remark');
@@ -27,6 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string('work_type');
             $table->string('address');
             $table->string('email');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

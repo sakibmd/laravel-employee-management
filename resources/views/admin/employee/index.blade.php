@@ -47,6 +47,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Login No</th>
+                                    <th>Category</th>
                                     <th>Ref</th>
                                     <th>Remark</th>
                                     <th>Bin</th>
@@ -65,6 +66,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Login No</th>
+                                    <th>Category</th>
                                     <th>Ref</th>
                                     <th>Remark</th>
                                     <th>Bin</th>
@@ -84,6 +86,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $employee->login_no }}</td>
+                            <td>{{ $employee->category->name }}</td>
                             <td>{{ $employee->ref }}</td>
                             <td>{{ $employee->remark }}</td>
                             <td>{{ $employee->bin }}</td>

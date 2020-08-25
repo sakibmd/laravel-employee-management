@@ -46,14 +46,16 @@ class EmployeeController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:employees'],
             'contact' => ['required', 'numeric', 'unique:employees'],
             'bin' => ['required', 'numeric', 'unique:employees'],
-            'categories' => ['required'],
-            
+            'category_id' => ['required'],
+            'bin_name' => ['required'],
+            'address' => ['required'],
+            'login_no' => ['required'],
            ]);
   
  
             $employee = new Employee();
             $employee->login_no = $request->login_no;
-            $employee->category_id = $request->categories;
+            $employee->category_id = $request->category_id;
             $employee->ref = $request->ref;
             $employee->remark = $request->remark;
             $employee->bin = $request->bin;
@@ -64,8 +66,6 @@ class EmployeeController extends Controller
             $employee->address = $request->address;
             $employee->email = $request->email;
             $employee->save();
-            $employee->categories()->attach($request->categories);
-
             return redirect(route('admin.employee.index'))->with('success', 'Employee Added Successfully');
     }
 
@@ -104,8 +104,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-            $employee->login_no = $request->login_no;
+        $this->validate($request,[
+            'category_id' => ['required'],
+            'bin_name' => ['required'],
+            'address' => ['required'],
+            'login_no' => ['required'],
+           ]);
+           
+           $employee->login_no = $request->login_no;
             $employee->ref = $request->ref;
+            $employee->category_id = $request->category_id;
             $employee->remark = $request->remark;
             $employee->bin_name = $request->bin_name;
             $employee->work_month = $request->work_month;
@@ -130,8 +138,6 @@ class EmployeeController extends Controller
         if(Auth::id() != 1){
             return redirect()->back();
         }
-        $employee->categories()->detach();
-        $employee->delete();
-         return redirect(route('admin.employee.index'))->with('success', 'Employee Deleted Successfully');
+        return redirect(route('admin.employee.index'))->with('success', 'Employee Deleted Successfully');
     }
 }

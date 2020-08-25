@@ -62,6 +62,16 @@
                                 </div>
                             </div>
 
+                            <div class="form-group form-float {{ $errors->has('categories') ? 'focused error' : '' }}">
+                                <label class="form-label" for="category">Select Categories</label>
+                                <select name="category_id" id="category" class="form-control">
+                                    <option class="text-center"></option>
+                                    @foreach ($categories as $category)
+                        <option class="text-center" {{ $category->id == $employee->category_id ? 'selected' : '' }} value="{{ $category->id }}" >{{ $category->name }}</option>
+                                    @endforeach
+                                </select>                     
+                            </div>
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                 <input type="text"  class="form-control" name="remark" value="{{ old('remark', $employee->remark) }}">
@@ -70,9 +80,7 @@
                             </div>
 
                             <div class="form-group">
-                               
                                 <input type="hidden"  class="form-control" name="bin" value="{{ old('bin', $employee->bin) }}">
-                            
                             </div>
 
                             <div class="form-group form-float">
