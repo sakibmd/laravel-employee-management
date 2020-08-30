@@ -107,10 +107,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        
+        if(Employee::where('category_id', $id)->count() > 0){
+            return redirect(route('admin.category.index'))->with('warning', 'You can not delete this category right now
+            because there are some employees in this category');
+        };
+       
         $category = Category::find($id);
         $category->delete();
-
-        $employee = Employee::where('category_id', '=', $id)->delete();
         return redirect(route('admin.category.index'))->with('success', 'Category Deleted Successfully');
     }
 

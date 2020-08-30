@@ -105,13 +105,19 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $this->validate($request,[
+            'email' => 'required|email|unique:employees,email,'.$employee->id,
+            'contact' => 'required|numeric|unique:employees,contact,'.$employee->id,
+            'bin' => 'required|numeric|unique:employees,bin,'.$employee->id,
             'category_id' => ['required'],
             'bin_name' => ['required'],
             'address' => ['required'],
             'login_no' => ['required'],
            ]);
            
-           $employee->login_no = $request->login_no;
+            $employee->login_no = $request->login_no;
+            $employee->email = $request->email;
+            $employee->contact = $request->contact;
+            $employee->bin = $request->bin;
             $employee->ref = $request->ref;
             $employee->category_id = $request->category_id;
             $employee->remark = $request->remark;

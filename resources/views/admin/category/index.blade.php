@@ -23,6 +23,11 @@
               {{ session()->get('success') }}
           </div>
     @endif
+    @if (session()->has('warning'))
+        <div class="alert alert-warning m-3" role="alert">
+            {{ session()->get('warning') }}
+        </div>
+    @endif
 
    
     <!-- Exportable Table -->

@@ -70,6 +70,8 @@
                                 </div>
                             </div>
 
+
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                 <input type="text" id="title" class="form-control" name="remark" value="{{ old('remark') }}">
@@ -93,7 +95,7 @@
 
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                <input type="tel" id="title" class="form-control" name="contact" value="{{ old('contact') }}">
+                                <input type="text" id="title" class="form-control" name="contact" value="{{ old('contact') }}">
                                     <label class="form-label">Contact (for contact number you must have to add 88 before number)</label>
                                 </div>
                             </div>
@@ -121,7 +123,7 @@
 
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                <input type="email" id="title" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="text" id="title" class="form-control" name="email" value="{{ old('email') }}">
                                     <label class="form-label">Email</label>
                                 </div>
                             </div>

@@ -23,10 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('employee/submission-id-pass', 'RecordController@storeRecord')->name('submissionid.record.store');
 
-Route::put('admin/employee/{id}/contact','UpdateController@changeContact')->name('change.contact');
-Route::put('admin/employee/{id}/Bin','UpdateController@changeBin')->name('change.bin');
-Route::put('admin/employee/{id}/Email','UpdateController@changeEmail')->name('change.email');
-
 
 Route::group([ 
     'as' => 'admin.', 
