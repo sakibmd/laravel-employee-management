@@ -58,8 +58,8 @@ Best Regards,
 
 Tareque Hassan";
             $data= array(
-                'username'=>"01713301190", //enter your sms provider accounts username
-                'password'=>"69C7DTG4", //enter your sms provider accounts passowrd
+                'username'=>"", //enter your sms provider accounts username
+                'password'=>"", //enter your sms provider accounts passowrd
                 'number'=> $number,
                 'message'=>$text
             );
